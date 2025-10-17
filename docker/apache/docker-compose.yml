@@ -1,0 +1,13 @@
+services:
+  apache:
+    image: webdevops/apache:latest
+    restart: always
+    env_file: .env
+    volumes:
+      - /home/debian/transfer:/var/www/html/transfer
+    container_name: apache
+
+networks:
+  default:
+    external: true
+    name: nginx-proxy
